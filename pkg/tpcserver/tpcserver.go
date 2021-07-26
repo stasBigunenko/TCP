@@ -6,6 +6,7 @@ import (
 	"log"
 	"net"
 	"strings"
+	"time"
 )
 
 func HandleServerConnection(conn net.Conn, i int) {
@@ -15,9 +16,16 @@ func HandleServerConnection(conn net.Conn, i int) {
 		}
 	}()
 
+	timeoutDuration := 20 * time.Second
+
 	// receive the message
 	scanner := bufio.NewScanner(conn)
 	for scanner.Scan() {
+
+		// Set a deadline for reading. Read operation will fail if no data
+		// is received after deadline.
+		conn.SetReadDeadline(time.Now().Add(timeoutDuration))
+
 		msg := scanner.Text()
 		service.SaveClientMsg(msg, i)
 		msg = strings.ToLower(msg)
@@ -33,7 +41,7 @@ func HandleServerConnection(conn net.Conn, i int) {
 			msgNew = service.Time(msg)
 		case string(msg) == "id":
 			msgNew = service.IdConnection(i)
-			default:
+		default:
 			msgNew = service.Unknown()
 			service.SaveNewCommand(msg, i)
 		}
@@ -47,4 +55,3 @@ func HandleServerConnection(conn net.Conn, i int) {
 	}
 	log.Printf("Client %v disconnected...\n", i)
 }
-

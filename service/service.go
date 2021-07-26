@@ -9,28 +9,28 @@ import (
 	"time"
 )
 
-func Help (msg string) string {
+func Help(msg string) string {
 	msgNew := "You can choose the following commands: Hi, Bye, Time, Id"
 	return msgNew
 }
 
-func Hi (msg string) string {
+func Hi(msg string) string {
 	msgNew := "Hello my friend!"
 	return msgNew
 }
 
-func Bye (msg string) string {
+func Bye(msg string) string {
 	msgNew := "Good bye my friend"
 	return msgNew
 }
 
-func Unknown () string {
+func Unknown() string {
 	return "Unknown command, sorry. Please try again."
 }
 
-func Time (msg string) string {
+func Time(msg string) string {
 	t := time.Now()
-	msgNew:= (t.Format("2006-01-02 15:04:05"))
+	msgNew := (t.Format("2006-01-02 15:04:05"))
 	return msgNew
 }
 
@@ -48,9 +48,9 @@ func SaveClientMsg(msg string, i int) {
 	defer f.Close()
 
 	t := time.Now()
-	time:= (t.Format("2006-01-02 15:04:05"))
+	time := (t.Format("2006-01-02 15:04:05"))
 
-	k:= strconv.Itoa(i)//ID connection number
+	k := strconv.Itoa(i) //ID connection number
 
 	if _, err := f.WriteString(msg + " ---------have been written in " + time + " by ID = " + k + "\n"); err != nil {
 		log.Println(err)
@@ -66,9 +66,9 @@ func SaveNewCommand(msgNew string, i int) {
 	defer f.Close()
 
 	t := time.Now()
-	time:= (t.Format("2006-01-02 15:04:05"))
+	time := (t.Format("2006-01-02 15:04:05"))
 
-	k:= strconv.Itoa(i)
+	k := strconv.Itoa(i)
 
 	if _, err := f.WriteString(msgNew + " ---------have been written in " + time + " by ID = " + k + "\n"); err != nil {
 		log.Println(err)
