@@ -16,7 +16,7 @@ func HandleServerConnection(conn net.Conn, i int) {
 		}
 	}()
 
-	timeoutDuration := 20 * time.Second
+	timeoutDuration := 10 * time.Second
 
 	// receive the message
 	scanner := bufio.NewScanner(conn)

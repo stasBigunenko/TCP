@@ -31,14 +31,14 @@ func main() {
 		for {
 			// read message from stdin
 			scannerStdin := bufio.NewScanner(os.Stdin)
-			fmt.Print("Server message: ") // Please write your command to server
+			fmt.Print("Please write your command to the server: ")
 			for scannerStdin.Scan() {
 				text := scannerStdin.Text()
 				fmt.Println("---")
 				// send message to server
 				_, errWrite := fmt.Fprintf(conn, text+"\n")
 				if errWrite != nil {
-					log.Println("Server offline, attempting to reconnect...")
+					log.Println("Server offline")
 				}
 				log.Print("Server receives: " + text)
 				break
