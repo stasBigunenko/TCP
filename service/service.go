@@ -57,9 +57,9 @@ func SaveClientMsg(msg string, i int) {
 	}
 }
 
-//save to the file with name unknownCommand
+//save to the file with unknownCommand
 func SaveNewCommand(msgNew string, i int) {
-	f, err := os.OpenFile("../../pkg/storage/unknownCommand.txt", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0600)
+	f, err := os.OpenFile("../../pkg/storage/unknownCommand.txt", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
 	if err != nil {
 		log.Println(err)
 	}
