@@ -1,7 +1,7 @@
 TCP-Server
 Simple TCP server and client.
 
-Usage
+Usage:
 This will create a small server and client side. Client can write a message and the server will respond.
 
 At the moment the server knows the following commands: Hi, Bye, Time, Id, Help. Other commands are under developing.
