@@ -31,15 +31,15 @@ func HandleServerConnection(conn net.Conn, i int) {
 		msg = strings.ToLower(msg)
 		var msgNew string
 		switch {
-		case string(msg) == "help":
+		case msg == "help":
 			msgNew = service.Help()
-		case string(msg) == "hi":
+		case msg == "hi":
 			msgNew = service.Hi()
-		case string(msg) == "bye":
+		case msg == "bye":
 			msgNew = service.Bye()
-		case string(msg) == "time":
+		case msg == "time":
 			msgNew = service.Time()
-		case string(msg) == "id":
+		case msg == "id":
 			msgNew = service.IdConnection(i)
 		default:
 			msgNew = service.Unknown()
