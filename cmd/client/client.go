@@ -16,7 +16,7 @@ func main() {
 	// connect to server
 	for {
 		//connect:
-		config := config.New()
+		config := config.Set()
 
 		conn, errConn := net.Dial(config.Protocol, config.Host+config.Port)
 		if errConn != nil {
@@ -38,7 +38,7 @@ func main() {
 				// send message to server
 				_, errWrite := fmt.Fprintf(conn, text+"\n")
 				if errWrite != nil {
-					log.Println("Server offline")
+					log.Println("Server have been terminated due to timeout.")
 				}
 				log.Print("Server receives: " + text)
 				break
