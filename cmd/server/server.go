@@ -3,17 +3,17 @@ package main
 //server
 
 import (
-	"../../pkg/tpcserver"
-	"../config"
+	"TCP/cmd/config"
+	"TCP/pkg/tpcserver"
 	"fmt"
 	"log"
 	"net"
 )
 
 func main() {
-	config := config.New()
+	config := config.Set()
 
-	log.Println("Server launched...")
+	log.Printf("Server launched...")
 	// listen according the config data
 	ln, err := net.Listen(config.Protocol, config.Port)
 	if err != nil {
