@@ -10,18 +10,15 @@ import (
 )
 
 func Help() string {
-	msgNew := "You can choose the following commands: Hi, Bye, Time, Id"
-	return msgNew
+	return "You can choose the following commands: Hi, Bye, Time, Id"
 }
 
 func Hi() string {
-	msgNew := "Hello my friend!"
-	return msgNew
+	return "Hello my friend!"
 }
 
 func Bye() string {
-	msgNew := "Good bye my friend"
-	return msgNew
+	return "Good bye my friend"
 }
 
 func Unknown() string {
@@ -35,8 +32,7 @@ func Time() string {
 }
 
 func IdConnection(i int) string {
-	msgNew := "Your connection is number " + strconv.Itoa(i)
-	return msgNew
+	return "Your connection is number " + strconv.Itoa(i)
 }
 
 //save func to the file with name clientCommand.txt
