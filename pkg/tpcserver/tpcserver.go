@@ -1,7 +1,7 @@
 package tpcserver
 
 import (
-	"../../service"
+	"TCP/service"
 	"bufio"
 	"log"
 	"net"
