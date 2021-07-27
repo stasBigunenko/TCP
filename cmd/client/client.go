@@ -3,7 +3,7 @@ package main
 //client
 
 import (
-	"../config"
+	"TCP/cmd/config"
 	"bufio"
 	"fmt"
 	"log"

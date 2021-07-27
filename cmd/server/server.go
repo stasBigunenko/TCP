@@ -3,8 +3,8 @@ package main
 //server
 
 import (
-	"../../pkg/tpcserver"
-	"../config"
+	"TCP/cmd/config"
+	"TCP/pkg/tpcserver"
 	"fmt"
 	"log"
 	"net"
