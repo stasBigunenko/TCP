@@ -32,13 +32,13 @@ func HandleServerConnection(conn net.Conn, i int) {
 		var msgNew string
 		switch {
 		case string(msg) == "help":
-			msgNew = service.Help(msg)
+			msgNew = service.Help()
 		case string(msg) == "hi":
-			msgNew = service.Hi(msg)
+			msgNew = service.Hi()
 		case string(msg) == "bye":
-			msgNew = service.Bye(msg)
+			msgNew = service.Bye()
 		case string(msg) == "time":
-			msgNew = service.Time(msg)
+			msgNew = service.Time()
 		case string(msg) == "id":
 			msgNew = service.IdConnection(i)
 		default:

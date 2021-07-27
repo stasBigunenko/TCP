@@ -9,17 +9,17 @@ import (
 	"time"
 )
 
-func Help(msg string) string {
+func Help() string {
 	msgNew := "You can choose the following commands: Hi, Bye, Time, Id"
 	return msgNew
 }
 
-func Hi(msg string) string {
+func Hi() string {
 	msgNew := "Hello my friend!"
 	return msgNew
 }
 
-func Bye(msg string) string {
+func Bye() string {
 	msgNew := "Good bye my friend"
 	return msgNew
 }
@@ -28,7 +28,7 @@ func Unknown() string {
 	return "Unknown command, sorry. Please try again."
 }
 
-func Time(msg string) string {
+func Time() string {
 	t := time.Now()
 	msgNew := (t.Format("2006-01-02 15:04:05"))
 	return msgNew
@@ -58,7 +58,7 @@ func SaveClientMsg(msg string, i int) {
 }
 
 //save to the file with unknownCommand
-func SaveNewCommand(msgNew string, i int) {
+func SaveNewCommand(msg string, i int) {
 	f, err := os.OpenFile("../../pkg/storage/unknownCommand.txt", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
 	if err != nil {
 		log.Println(err)
@@ -70,7 +70,7 @@ func SaveNewCommand(msgNew string, i int) {
 
 	k := strconv.Itoa(i)
 
-	if _, err := f.WriteString(msgNew + " ---------have been written in " + time + " by ID = " + k + "\n"); err != nil {
+	if _, err := f.WriteString(msg + " ---------have been written in " + time + " by ID = " + k + "\n"); err != nil {
 		log.Println(err)
 	}
 }
